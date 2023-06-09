@@ -16,7 +16,8 @@ const toggleRolling = () => {
   } else if (students) {
     rollingInterval = setInterval(() => {
       const n = students.length;
-      picked.value = students[Math.floor(Math.random() * n)];
+      // `| 0` is more compact and faster than `Math.floor()`.
+      picked.value = students[(Math.random() * n) | 0];
     }, 50);
     rolling.value = true;
   } else {
