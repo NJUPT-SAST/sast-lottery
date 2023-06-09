@@ -15,7 +15,7 @@ Navigate to the “Namelist import” page, and upload a CSV file with the follo
 3,Q20031003,王五
 ```
 
-The list can be any length, the first row and the first column will be ignored.
+The list can be any length, while empty lines, trailing commas, the first row and the first column will be ignored.
 
 After importing, you can navigate to the “Lottery” page, and click the button in the middle of the page to start the lottery.
 
