@@ -7,7 +7,7 @@ import IconImport from "@/components/icons/IconImport.vue";
   <nav class="navbar navbar-expand-sm bg-light mb-3">
     <div class="container-fluid">
       <RouterLink class="navbar-brand d-flex align-items-center" to="/">
-        <IconSast class="me-1" height="2em" /> 年会抽奖
+        <IconSast class="me-1" height="2em" /> 抽奖
       </RouterLink>
       <button
         class="navbar-toggler"

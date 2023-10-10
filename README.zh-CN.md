@@ -1,4 +1,4 @@
-# SAST Lottery — SAST 2023 年会抽奖系统
+# SAST Lottery — SAST 抽奖系统
 
 [English](README.md)
 
