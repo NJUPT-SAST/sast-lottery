@@ -13,6 +13,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
+        name: "SAST 抽奖系统",
         icons: [
           {
             src: "pwa-64x64.png",
