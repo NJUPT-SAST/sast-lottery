@@ -3,6 +3,7 @@ import { RouterView } from "vue-router";
 import NavBar from "@/components/NavBar.vue";
 import IconHeart from "@/components/icons/IconHeart.vue";
 import IconSast from "@/components/icons/IconSast.vue";
+import ReloadPrompt from "./components/ReloadPrompt.vue";
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import IconSast from "@/components/icons/IconSast.vue";
       </p>
     </footer>
   </div>
+  <ReloadPrompt />
 </template>
 
 <style scoped>
