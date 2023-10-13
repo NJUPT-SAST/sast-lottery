@@ -2,21 +2,37 @@
 import { ref, computed } from "vue";
 import { useStudentsStore } from "@/stores/students";
 import type { Student } from "@/types/student";
-// const files = ref<FileList | null | undefined>();
 
 const hasFile = ref(false);
 const fileContent = ref<string>();
 const studentsStore = useStudentsStore();
 
+/**
+ * Regex for matching student ID.
+ */
+const idRegExp = /^[BFPQ][0-9]{8}$/;
+
+/**
+ * Regex for matching student name.
+ */
+const nameRegExp = /^[\p{Script=Hani}]+(?:·[\p{Script=Hani}]+)*?$/u;
+
+const invalidCount = ref(0);
+
 const items = computed(() => {
   const c = fileContent.value?.split("\n");
+  // Remove the header row from file
   c?.shift();
   return c
     ?.map<Student>((s) => {
       const field = s.split(",");
       return { id: field[1], name: field[2] };
     })
-    .filter((s) => s.id);
+    .filter(
+      (s) =>
+        (idRegExp.test(s.id) && nameRegExp.test(s.name)) ||
+        ((invalidCount.value += 1) && false),
+    );
 });
 
 const importStudents = () => {
@@ -74,6 +90,7 @@ const onInput = async (e: Event) => {
         </tbody>
       </table>
     </div>
+    <div v-if="invalidCount">已过滤 {{ invalidCount }} 条不合法记录</div>
   </main>
 </template>
 
