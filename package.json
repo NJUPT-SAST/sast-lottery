@@ -18,12 +18,12 @@
     "bootstrap": "^5.3.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "workbox-window": "^7.1.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "@rushstack/eslint-patch": "^1.10.2",
-    "@tsconfig/node18": "^18.2.4",
     "@tsconfig/node20": "^20.1.4",
     "@types/bootstrap": "^5.2.10",
     "@types/node": "^20.12.11",

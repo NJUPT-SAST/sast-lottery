@@ -37,6 +37,7 @@ export default defineConfig({
           },
         ],
         lang: "zh-cn",
+        theme_color: "#ffffff",
       },
     }),
   ],
