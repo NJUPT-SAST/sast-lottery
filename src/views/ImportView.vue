@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useStudentsStore } from "@/stores/students";
 import type { Student } from "@/types/student";
 
 const hasFile = ref(false);
-const fileContent = ref<string>();
 const studentsStore = useStudentsStore();
+
+const fileForm = ref<HTMLFormElement>();
 
 /**
  * Regex for matching student ID.
@@ -19,42 +20,56 @@ const nameRegExp = /^[\p{Script=Hani}]+(?:·[\p{Script=Hani}]+)*?$/u;
 
 const invalidCount = ref(0);
 
-const items = computed(() => {
-  const c = fileContent.value?.split("\n");
+const items = ref<Student[]>([]);
+
+const setItems = (content: string) => {
+  invalidCount.value = 0;
+  const c = content.split("\n");
   // Remove the header row from file
-  c?.shift();
-  return c
-    ?.map<Student>((s) => {
+  c.shift();
+  console.log(JSON.stringify(c));
+  items.value = c
+    .map<Student>((s) => {
       const field = s.split(",");
+      console.log(JSON.stringify(field));
       return { id: field[1], name: field[2] };
     })
-    .filter(
-      (s) =>
-        (idRegExp.test(s.id) && nameRegExp.test(s.name)) ||
-        ((invalidCount.value += 1) && false),
-    );
-});
+    .filter((s) => {
+      const valid = idRegExp.test(s.id) && nameRegExp.test(s.name);
+      if (!valid) {
+        invalidCount.value += 1;
+      }
+      return valid;
+    });
+};
 
 const importStudents = () => {
-  studentsStore.setStudents(items.value);
+  if (items.value.length) {
+    studentsStore.students = items.value;
+    items.value = [];
+    fileForm.value?.reset();
+    hasFile.value = false;
+  }
 };
 
 const clearStudents = () => {
   hasFile.value = false;
-  studentsStore.setStudents(undefined);
+  invalidCount.value = 0;
+  items.value = [];
+  studentsStore.students = undefined;
 };
 
 const onInput = async (e: Event) => {
   const file = (e.target as HTMLInputElement).files?.item(0);
   hasFile.value = !!file;
-  if (file) fileContent.value = (await file.text()).trim();
+  if (file) setItems((await file.text()).trim());
 };
 </script>
 
 <template>
-  <main class="d-flex flex-column align-items-center">
-    <h1>名单导入</h1>
-    <form>
+  <main class="d-flex flex-column">
+    <h1 class="mx-auto">名单导入</h1>
+    <form class="mx-auto" ref="fileForm">
       <div class="input-group">
         <input
           type="file"
@@ -76,21 +91,40 @@ const onInput = async (e: Event) => {
         </button>
       </div>
     </form>
-    <div v-if="studentsStore.students">
-      <table class="table">
-        <thead>
-          <th>学号</th>
-          <th>姓名</th>
-        </thead>
-        <tbody>
-          <tr v-for="item in studentsStore.students" :key="item.id">
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="d-flex mx-auto">
+      <div v-if="studentsStore.students?.length" class="mx-3">
+        当前名单：
+        <table class="table">
+          <thead>
+            <th>学号</th>
+            <th>姓名</th>
+          </thead>
+          <tbody>
+            <tr v-for="item in studentsStore.students" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div v-if="items.length" class="mx-3">
+        新名单：
+        <table class="table">
+          <thead>
+            <th>学号</th>
+            <th>姓名</th>
+          </thead>
+          <tbody>
+            <tr v-for="item in items" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-if="invalidCount">已过滤 {{ invalidCount }} 条不合法记录</div>
+      </div>
     </div>
-    <div v-if="invalidCount">已过滤 {{ invalidCount }} 条不合法记录</div>
   </main>
 </template>
 

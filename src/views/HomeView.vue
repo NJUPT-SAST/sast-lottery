@@ -1,36 +1,40 @@
 <script setup lang="ts">
 import { useStudentsStore } from "@/stores/students";
 import type { Student } from "@/types/student";
-import { onUnmounted, ref } from "vue";
+import { useIntervalFn } from "@vueuse/core";
+import { storeToRefs } from "pinia";
+import { ref } from "vue";
 
-const { students } = useStudentsStore();
+const { students } = storeToRefs(useStudentsStore());
 
 const picked = ref<Student>({ id: "点击", name: "开始抽取" });
 
-const rolling = ref(false);
-let rollingInterval: number | undefined;
-const toggleRolling = () => {
-  if (rolling.value) {
-    clearInterval(rollingInterval);
-    rolling.value = false;
-  } else if (students) {
-    rollingInterval = setInterval(() => {
-      const n = students.length;
+const { isActive, pause, resume } = useIntervalFn(
+  () => {
+    if (students.value) {
+      console.log(students.value);
+      const n = students.value.length;
       // `| 0` is more compact and faster than `Math.floor()`.
-      picked.value = students[(Math.random() * n) | 0];
-    }, 50);
-    rolling.value = true;
+      picked.value = students.value[(Math.random() * n) | 0];
+    }
+  },
+  50,
+  { immediate: false },
+);
+
+const toggleRolling = () => {
+  console.log(1);
+  if (isActive.value) {
+    console.log(2);
+    pause();
+  } else if (students.value?.length) {
+    console.log(3);
+    resume();
   } else {
+    console.log(4);
     alert("还没有添加学生哦！");
   }
 };
-
-onUnmounted(() => {
-  if (rolling.value) {
-    clearInterval(rollingInterval);
-    rolling.value = false;
-  }
-});
 </script>
 
 <template>

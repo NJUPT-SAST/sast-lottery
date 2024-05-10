@@ -13,6 +13,7 @@
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
+    "@vueuse/core": "^10.9.0",
     "bootstrap": "^5.3.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
