@@ -40,7 +40,7 @@ const toggleRolling = () => {
 <template>
   <div></div>
   <main class="d-flex flex-column align-items-center">
-    <button type="button" @click="toggleRolling" class="btn btn-light btn-lg">
+    <button type="button" class="btn btn-light btn-lg" @click="toggleRolling">
       <h2>{{ picked.id }}</h2>
       <h2>{{ picked.name }}</h2>
     </button>

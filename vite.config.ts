@@ -1,17 +1,15 @@
-import { fileURLToPath, URL } from "node:url";
+import { URL, fileURLToPath } from "node:url";
 
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import purgeCss from "@mojojoejo/vite-plugin-purgecss";
 import { VitePWA } from "vite-plugin-pwa";
+import { defineConfig } from "vite";
+import purgeCss from "@fullhuman/postcss-purgecss";
+import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    purgeCss(),
     VitePWA({
-      registerType: "autoUpdate",
       manifest: {
         name: "SAST 抽奖系统",
         icons: [
@@ -42,6 +40,15 @@ export default defineConfig({
       },
     }),
   ],
+  css: {
+    postcss: {
+      plugins: [
+        purgeCss({
+          content: ["./index.html", "./src/**/*.vue"],
+        }),
+      ],
+    },
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

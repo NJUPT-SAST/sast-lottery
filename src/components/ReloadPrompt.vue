@@ -25,9 +25,9 @@ const close = async () => {
         <span v-else> 检测到新的内容，请点击重新加载 </span>
         <div v-if="needRefresh" class="mt-2 pt-2 border-top">
           <button
-            @click="updateServiceWorker()"
             type="button"
             class="btn btn-primary btn-sm me-1"
+            @click="updateServiceWorker()"
           >
             重新加载
           </button>

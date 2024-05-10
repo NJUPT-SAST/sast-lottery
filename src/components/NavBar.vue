@@ -2,6 +2,7 @@
 import IconPick from "@/components/icons/IconPick.vue";
 import IconSast from "@/components/icons/IconSast.vue";
 import IconImport from "@/components/icons/IconImport.vue";
+import IconGitHub from "@/components/icons/IconGitHub.vue";
 </script>
 <template>
   <nav class="navbar navbar-expand-sm bg-light mb-3">
@@ -34,15 +35,26 @@ import IconImport from "@/components/icons/IconImport.vue";
               抽奖
             </RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-auto">
             <RouterLink
-              class="nav-link d-flex align-items-center me-1"
+              class="nav-link d-flex align-items-center"
               to="/import"
               active-class="active"
             >
               <IconImport height="1.2em" class="me-1" />
               名单导入
             </RouterLink>
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://github.com/NJUPT-SAST/sast-lottery"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-link d-flex align-items-center"
+            >
+              <IconGitHub height="1.2em" class="me-1" />
+              GitHub
+            </a>
           </li>
         </ul>
       </div>

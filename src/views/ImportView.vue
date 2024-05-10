@@ -69,18 +69,18 @@ const onInput = async (e: Event) => {
 <template>
   <main class="d-flex flex-column">
     <h1 class="mx-auto">名单导入</h1>
-    <form class="mx-auto" ref="fileForm">
+    <form ref="fileForm" class="mx-auto">
       <div class="input-group">
         <input
           type="file"
-          @input="onInput"
           class="form-control"
           accept=".csv,text/csv"
+          @input="onInput"
         />
 
         <button
-          class="btn btn-primary"
           v-if="hasFile"
+          class="btn btn-primary"
           type="button"
           @click="importStudents"
         >
