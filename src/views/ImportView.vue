@@ -127,5 +127,3 @@ const onInput = async (e: Event) => {
     </div>
   </main>
 </template>
-
-<style scoped></style>

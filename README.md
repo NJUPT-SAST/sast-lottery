@@ -21,18 +21,13 @@ After importing, you can navigate to the “Lottery” page, and click the butto
 
 ## Prerequisites
 
-- [Node.js][nodejs], v18 or later recommended.
+- [Node.js][nodejs], v20 or later recommended.
 - [pnpm][pnpm]. npm or yarn may be sufficient for building, but they are not tested. Use them at your own risk.
 
 ## Recommended IDE Setup
 
 - [Visual Studio Code][vs-code]
-- [Vue Language Features (Volar)][volar]
-- [TypeScript Vue Plugin (Volar)][volar-ts].
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)][volar-ts] to make the TypeScript language service aware of `.vue` types, or using [Take Over Mode][volar-takeover-mode].
+- [Vue - Official][vue]
 
 ## Project Setup Scripts
 
@@ -54,7 +49,7 @@ pnpm dev
 pnpm build
 ```
 
-### Lint with [ESLint][eslint]
+### Lint with [ESLint][eslint] and [Stylelint][stylelint]
 
 ```sh
 pnpm lint
@@ -63,7 +58,6 @@ pnpm lint
 [nodejs]: https://nodejs.org/
 [pnpm]: https://pnpm.io/
 [vs-code]: https://code.visualstudio.com/
-[volar]: https://marketplace.visualstudio.com/items?itemName=Vue.volar
-[volar-ts]: https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin
-[volar-takeover-mode]: https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669
+[vue]: https://marketplace.visualstudio.com/items?itemName=Vue.volar
 [eslint]: https://eslint.org/
+[stylelint]: https://stylelint.io/

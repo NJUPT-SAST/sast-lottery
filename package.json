@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint .",
+    "lint": "run-s \"lint:css {@}\" \"lint:js {@}\" --",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint **/*.{css,html,vue}",
     "format": "prettier --write src/",
     "generate-pwa-assets": "pwa-assets-generator"
   },
@@ -18,8 +20,7 @@
     "bootstrap": "^5.3.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2",
-    "workbox-window": "^7.1.0"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
@@ -32,15 +33,21 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
-    "eslint": "^8.57.0",
+    "cssnano": "^7.0.1",
+    "cssnano-preset-advanced": "^7.0.1",
+    "eslint": "^9.2.0",
     "eslint-plugin-vue": "^9.26.0",
     "npm-run-all2": "^6.1.2",
+    "postcss-html": "^1.7.0",
     "prettier": "^3.2.5",
-    "sass": "^1.77.0",
-    "typescript": "~5.4.5",
+    "sass": "^1.77.1",
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard": "^36.0.0",
+    "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-pwa": "^0.20.0",
-    "vue-tsc": "^2.0.17"
+    "vue-tsc": "^2.0.17",
+    "workbox-window": "^7.1.0"
   },
   "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
 }

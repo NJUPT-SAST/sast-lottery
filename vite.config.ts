@@ -1,6 +1,7 @@
 import { URL, fileURLToPath } from "node:url";
 
 import { VitePWA } from "vite-plugin-pwa";
+import cssNano from "cssnano";
 import { defineConfig } from "vite";
 import purgeCss from "@fullhuman/postcss-purgecss";
 import vue from "@vitejs/plugin-vue";
@@ -45,8 +46,9 @@ export default defineConfig({
     postcss: {
       plugins: [
         purgeCss({
-          content: ["./index.html", "./src/**/*.vue"],
+          content: ["**/*.{html,vue,css}"],
         }),
+        cssNano({ preset: "advanced" }),
       ],
     },
   },

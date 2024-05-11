@@ -21,18 +21,13 @@
 
 ## 先决条件
 
-- [Node.js][nodejs]，建议使用 v18 或更高版本。
+- [Node.js][nodejs]，建议使用 v20 或更高版本。
 - [pnpm][pnpm]。npm 或 yarn 可能足以构建，但未经测试。使用它们需自担风险。
 
 ## 推荐的 IDE 设置
 
 - [Visual Studio Code][vs-code]
-- [Vue Language Features (Volar)][volar]
-- [TypeScript Vue Plugin (Volar)][volar-ts]
-
-## 在 TS 中支持 `.vue` 导入的类型
-
-TypeScript 默认无法处理 `.vue` 导入的类型信息，因此我们使用 `vue-tsc` 替换 `tsc` CLI 进行类型检查。在编辑器中，我们需要 [TypeScript Vue Plugin (Volar)][volar-ts] 使 TypeScript 语言服务认识 `.vue` 类型，或使用 [Take Over Mode][volar-takeover-mode]。
+- [Vue - Official][vue]
 
 ## 项目配置脚本
 
@@ -48,7 +43,7 @@ pnpm install
 pnpm dev
 ```
 
-### 用 [ESLint][eslint] 进行代码检查
+### 用 [ESLint][eslint] 与 [Stylelint][stylelint] 进行代码检查
 
 ```sh
 pnpm lint
@@ -63,7 +58,6 @@ pnpm build
 [nodejs]: https://nodejs.org/
 [pnpm]: https://pnpm.io/
 [vs-code]: https://code.visualstudio.com/
-[volar]: https://marketplace.visualstudio.com/items?itemName=Vue.volar
-[volar-ts]: https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin
-[volar-takeover-mode]: https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669
+[vue]: https://marketplace.visualstudio.com/items?itemName=Vue.volar
 [eslint]: https://eslint.org/
+[stylelint]: https://stylelint.io/
