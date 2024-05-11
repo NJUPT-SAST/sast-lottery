@@ -44,7 +44,7 @@ const toggleRolling = () => {
   <main class="d-flex align-items-center my-auto">
     <button
       type="button"
-      class="btn btn-light btn-lg ms-auto me-5"
+      class="btn bg-secondary-subtle btn-lg ms-auto me-5"
       @click="toggleRolling"
     >
       <h2>{{ picked.id }}</h2>

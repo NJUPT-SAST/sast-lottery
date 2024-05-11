@@ -3,9 +3,20 @@ import IconPick from "@/components/icons/IconPick.vue";
 import IconSast from "@/components/icons/IconSast.vue";
 import IconImport from "@/components/icons/IconImport.vue";
 import IconGitHub from "@/components/icons/IconGitHub.vue";
+import IconMoon from "@/components/icons/IconMoon.vue";
+import IconSun from "@/components/icons/IconSun.vue";
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark({
+  selector: "body",
+  attribute: "data-bs-theme",
+  valueDark: "dark",
+});
+
+const toggleDark = useToggle(isDark);
 </script>
 <template>
-  <nav class="navbar navbar-expand-sm bg-light mb-3">
+  <nav class="navbar navbar-expand-sm mb-3">
     <div class="container-fluid">
       <RouterLink class="navbar-brand d-flex align-items-center" to="/">
         <IconSast class="me-1" height="2em" /> 抽奖系统
@@ -44,6 +55,16 @@ import IconGitHub from "@/components/icons/IconGitHub.vue";
               <IconImport height="1.2em" class="me-1" />
               名单导入
             </RouterLink>
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn d-flex align-items-center h-100"
+              @click="toggleDark()"
+            >
+              <IconMoon v-if="isDark" height="1.2em" />
+              <IconSun v-else height="1.2em" />
+            </button>
           </li>
           <li class="nav-item">
             <a

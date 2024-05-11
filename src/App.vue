@@ -15,8 +15,8 @@ import ReloadPrompt from "./components/ReloadPrompt.vue";
 
     <footer class="py-3 fixed-end">
       <p class="border-top text-center text-muted pt-3">
-        Made with <IconHeart class="text-danger" /> by
-        <IconSast height="3rem" />
+        Made with <IconHeart class="text-danger" height="1.2em" /> by
+        <IconSast height="3rem" class="text-body" />
       </p>
     </footer>
   </div>
