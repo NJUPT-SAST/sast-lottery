@@ -44,13 +44,13 @@ const toggleRolling = () => {
   <main class="d-flex align-items-center my-auto">
     <button
       type="button"
-      class="btn bg-secondary-subtle btn-lg ms-auto me-5"
+      class="btn bg-secondary-subtle btn-lg ms-auto"
       @click="toggleRolling"
     >
       <h2>{{ picked.id }}</h2>
       <h2>{{ picked.name }}</h2>
     </button>
-    <div class="d-flex flex-column me-auto">
+    <div v-if="pickedSet.size" class="d-flex flex-column ms-5 me-auto">
       <table v-if="pickedSet.size" class="table text-center picked-table">
         <thead>
           <th>学号</th>
@@ -72,6 +72,7 @@ const toggleRolling = () => {
         清除记录
       </button>
     </div>
+    <div v-else class="me-auto" />
   </main>
 </template>
 <style scoped>
