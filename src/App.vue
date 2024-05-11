@@ -13,8 +13,8 @@ import ReloadPrompt from "./components/ReloadPrompt.vue";
   <div class="d-flex flex-column justify-content-between h-100-header">
     <RouterView />
 
-    <footer class="py-3 my-4 fixed-end">
-      <p class="border-top text-center text-muted pt-3 mt-3">
+    <footer class="py-3 fixed-end">
+      <p class="border-top text-center text-muted pt-3">
         Made with <IconHeart class="text-danger" /> by
         <IconSast height="3rem" />
       </p>

@@ -67,7 +67,7 @@ const onInput = async (e: Event) => {
 </script>
 
 <template>
-  <main class="d-flex flex-column">
+  <main class="d-flex flex-column my-auto">
     <h1 class="mx-auto">名单导入</h1>
     <form ref="fileForm" class="mx-auto">
       <div class="input-group">
