@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import IconPick from "@/components/icons/IconPick.vue";
 import IconSast from "@/components/icons/IconSast.vue";
+import IconPick from "@/components/icons/IconPick.vue";
+import IconHistory from "@/components/icons/IconHistory.vue";
 import IconImport from "@/components/icons/IconImport.vue";
-import IconGitHub from "@/components/icons/IconGitHub.vue";
 import IconMoon from "@/components/icons/IconMoon.vue";
 import IconSun from "@/components/icons/IconSun.vue";
+import IconGitHub from "@/components/icons/IconGitHub.vue";
 import { useDark, useToggle } from "@vueuse/core";
 
 const isDark = useDark({
@@ -42,8 +43,16 @@ const toggleDark = useToggle(isDark);
               to="/"
               active-class="active"
             >
-              <IconPick height="1.2em" class="me-1" />
-              抽奖
+              <IconPick height="1.2em" class="me-1" /> 抽奖
+            </RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink
+              class="nav-link d-flex align-items-center me-1"
+              to="/history"
+              active-class="active"
+            >
+              <IconHistory height="1.2em" class="me-1" /> 抽奖历史
             </RouterLink>
           </li>
           <li class="nav-item me-auto">
@@ -52,8 +61,7 @@ const toggleDark = useToggle(isDark);
               to="/import"
               active-class="active"
             >
-              <IconImport height="1.2em" class="me-1" />
-              名单导入
+              <IconImport height="1.2em" class="me-1" /> 名单导入
             </RouterLink>
           </li>
           <li class="nav-item">
@@ -73,8 +81,7 @@ const toggleDark = useToggle(isDark);
               rel="noopener noreferrer"
               class="nav-link d-flex align-items-center"
             >
-              <IconGitHub height="1.2em" class="me-1" />
-              GitHub
+              <IconGitHub height="1.2em" class="me-1" /> GitHub
             </a>
           </li>
         </ul>

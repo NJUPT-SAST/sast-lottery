@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHistoryStore } from "@/stores/history";
 import { useStudentsStore } from "@/stores/students";
 import type { Student } from "@/types/student";
 import { useIntervalFn } from "@vueuse/core";
@@ -7,14 +8,15 @@ import { ref } from "vue";
 
 const { students } = storeToRefs(useStudentsStore());
 
+const historyStore = useHistoryStore();
+
 const picked = ref<Student>({ id: "点击", name: "开始抽取" });
 
-const pickedSet = ref<Set<Student>>(new Set());
+const pickedSet = ref(new Set<Student>());
 
 const { isActive, pause, resume } = useIntervalFn(
   () => {
     if (students.value) {
-      console.log(students.value);
       const n = students.value.length;
       // `| 0` is more compact and faster than `Math.floor()`.
       picked.value = students.value[(Math.random() * n) | 0];
@@ -25,16 +27,15 @@ const { isActive, pause, resume } = useIntervalFn(
 );
 
 const toggleRolling = () => {
-  console.log(1);
   if (isActive.value) {
-    console.log(2);
     pause();
-    pickedSet.value.add(picked.value);
+    const pickedStudent = picked.value;
+    if (historyStore.pushHistory(pickedStudent)) {
+      pickedSet.value.add(pickedStudent);
+    }
   } else if (students.value?.length) {
-    console.log(3);
     resume();
   } else {
-    console.log(4);
     alert("还没有添加学生哦！");
   }
 };
@@ -51,7 +52,7 @@ const toggleRolling = () => {
       <h2>{{ picked.name }}</h2>
     </button>
     <div v-if="pickedSet.size" class="d-flex flex-column ms-5 me-auto">
-      <table v-if="pickedSet.size" class="table text-center picked-table">
+      <table class="table text-center picked-table">
         <thead>
           <th>学号</th>
           <th>姓名</th>
@@ -64,7 +65,6 @@ const toggleRolling = () => {
         </tbody>
       </table>
       <button
-        v-if="pickedSet.size"
         type="button"
         class="btn btn-danger btn-lg"
         @click="pickedSet = new Set()"
@@ -72,7 +72,7 @@ const toggleRolling = () => {
         清除记录
       </button>
     </div>
-    <div v-else class="me-auto" />
+    <div v-else class="me-auto"></div>
   </main>
 </template>
 <style scoped>
