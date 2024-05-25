@@ -1,7 +1,7 @@
-import type { Student } from "@/types/student";
+import { useStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 import { readonly } from "vue";
-import { useStorage } from "@vueuse/core";
+import type { Student } from "../types/student";
 
 export const useHistoryStore = defineStore("history", () => {
   const historySet = useStorage<Set<Student>>("historySet", new Set());

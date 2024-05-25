@@ -12,6 +12,7 @@
     "lint": "run-s \"lint:css {@}\" \"lint:js {@}\" --",
     "lint:js": "biome lint --apply .",
     "lint:css": "stylelint **/*.{css,html,vue}",
+    "check": "biome check --apply .",
     "format": "biome format --write .",
     "generate-pwa-assets": "pwa-assets-generator"
   },

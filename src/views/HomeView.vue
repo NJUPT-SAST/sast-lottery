@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useHistoryStore } from "@/stores/history";
-import { useStudentsStore } from "@/stores/students";
-import type { Student } from "@/types/student";
 import { useIntervalFn } from "@vueuse/core";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
+import { useHistoryStore } from "../stores/history";
+import { useStudentsStore } from "../stores/students";
+import type { Student } from "../types/student";
 
 const { students } = storeToRefs(useStudentsStore());
 

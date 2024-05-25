@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useStudentsStore } from "@/stores/students";
-import type { Student } from "@/types/student";
+import { useStudentsStore } from "../stores/students";
+import type { Student } from "../types/student";
 
 const hasFile = ref(false);
 const studentsStore = useStudentsStore();
