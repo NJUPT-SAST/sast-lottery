@@ -10,9 +10,9 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "run-s \"lint:css {@}\" \"lint:js {@}\" --",
-    "lint:js": "eslint .",
+    "lint:js": "biome lint --apply .",
     "lint:css": "stylelint **/*.{css,html,vue}",
-    "format": "prettier --write src/",
+    "format": "biome format --write .",
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
@@ -23,31 +23,26 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.3",
     "@fullhuman/postcss-purgecss": "^6.0.0",
-    "@rushstack/eslint-patch": "^1.10.2",
     "@tsconfig/node20": "^20.1.4",
     "@types/bootstrap": "^5.2.10",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.12.12",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vue/eslint-config-prettier": "^9.0.0",
-    "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
     "cssnano": "^7.0.1",
     "cssnano-preset-advanced": "^7.0.1",
-    "eslint": "^9.2.0",
-    "eslint-plugin-vue": "^9.26.0",
-    "npm-run-all2": "^6.1.2",
+    "npm-run-all2": "^6.2.0",
     "postcss-html": "^1.7.0",
-    "prettier": "^3.2.5",
-    "sass": "^1.77.1",
-    "stylelint": "^16.5.0",
+    "sass": "^1.77.2",
+    "stylelint": "^16.6.0",
     "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-pwa": "^0.20.0",
-    "vue-tsc": "^2.0.17",
+    "vue-tsc": "^2.0.19",
     "workbox-window": "^7.1.0"
   },
-  "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
+  "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
 }
