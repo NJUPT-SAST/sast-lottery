@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import IconSast from "@/components/icons/IconSast.vue";
-import IconPick from "@/components/icons/IconPick.vue";
-import IconHistory from "@/components/icons/IconHistory.vue";
-import IconImport from "@/components/icons/IconImport.vue";
-import IconMoon from "@/components/icons/IconMoon.vue";
-import IconSun from "@/components/icons/IconSun.vue";
-import IconGitHub from "@/components/icons/IconGitHub.vue";
 import { useDark, useToggle } from "@vueuse/core";
+import IconGitHub from "./icons/IconGitHub.vue";
+import IconHistory from "./icons/IconHistory.vue";
+import IconImport from "./icons/IconImport.vue";
+import IconMoon from "./icons/IconMoon.vue";
+import IconPick from "./icons/IconPick.vue";
+import IconSast from "./icons/IconSast.vue";
+import IconSun from "./icons/IconSun.vue";
 
 const isDark = useDark({
   selector: "body",
