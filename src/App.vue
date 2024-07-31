@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import NavBar from "@/components/NavBar.vue";
-import IconHeart from "@/components/icons/IconHeart.vue";
-import IconSast from "@/components/icons/IconSast.vue";
+import IconHeart from "./components/icons/IconHeart.vue";
+import IconSast from "./components/icons/IconSast.vue";
+import NavBar from "./components/NavBar.vue";
 import ReloadPrompt from "./components/ReloadPrompt.vue";
 </script>
 

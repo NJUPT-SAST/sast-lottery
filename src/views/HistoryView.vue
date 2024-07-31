@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHistoryStore } from "@/stores/history";
+import { useHistoryStore } from "../stores/history";
 const historyStore = useHistoryStore();
 </script>
 <template>

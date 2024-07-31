@@ -1,7 +1,7 @@
-import type { Student } from "@/types/student";
-import { computed } from "vue";
-import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
+import { defineStore } from "pinia";
+import { computed } from "vue";
+import type { Student } from "../types/student";
 
 export const useStudentsStore = defineStore("students", () => {
   const studentsStorage = useStorage<Student[]>("students", []);
