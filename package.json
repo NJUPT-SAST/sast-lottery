@@ -19,18 +19,18 @@
   "dependencies": {
     "@vueuse/core": "^10.11.0",
     "bootstrap": "^5.3.3",
-    "pinia": "^2.2.0",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0"
+    "pinia": "^2.2.1",
+    "vue": "^3.4.36",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/bootstrap": "^5.2.10",
-    "@types/node": "^20.14.13",
+    "@types/node": "^20.14.14",
     "@vite-pwa/assets-generator": "^0.2.4",
-    "@vitejs/plugin-vue": "^5.1.1",
+    "@vitejs/plugin-vue": "^5.1.2",
     "@vue/tsconfig": "^0.5.1",
     "cssnano": "^7.0.4",
     "cssnano-preset-advanced": "^7.0.4",

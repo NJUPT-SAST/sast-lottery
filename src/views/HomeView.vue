@@ -67,7 +67,7 @@ const toggleRolling = () => {
       <button
         type="button"
         class="btn btn-danger btn-lg"
-        @click="pickedSet = new Set()"
+        @click="(pickedSet = new Set())"
       >
         清除记录
       </button>
