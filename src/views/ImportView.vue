@@ -24,7 +24,7 @@ const items = ref<Student[]>([]);
 
 const setItems = (content: string) => {
   invalidCount.value = 0;
-  const c = content.split("\n");
+  const c = content.replace(/\r\n/g, "\n").split("\n");
   // Remove the header row from file
   c.shift();
   console.log(JSON.stringify(c));
